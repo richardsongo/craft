@@ -1,5 +1,10 @@
+<div class="articleHead">
+<h1 itemprop="headline">title</h1>
+<p class="article-dek" itemprop="description">description</p>
+</div>
 
 <article class="articleBody" itemprop="articleBody" data-scope="content">
 
 
 </article>
+
