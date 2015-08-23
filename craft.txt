@@ -1,3 +1,4 @@
+
 Image Transforms:
 
 large : 900 × 441
@@ -7,4 +8,10 @@ xsmall: 260 × 75
 
 ---------------------------
 
+Globals:
 
+siteDescription
+siteSlogan
+siteLogo
+siteFooter
+siteMenu
