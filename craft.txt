@@ -1,9 +1,9 @@
 Image Transforms:
 
-large
-medium
-small
-xsmall
+large : 900 × 441
+medium: 300 × 219 
+small:  300 × 125
+xsmall: 260 × 75
 
 ---------------------------
 
