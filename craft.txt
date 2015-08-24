@@ -23,6 +23,6 @@ siteMenu
 - Facebook page
 - feedburner Rss
 - Twitterfeed
--
+- logos
 
 
