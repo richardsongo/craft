@@ -15,3 +15,14 @@ siteSlogan
 siteLogo
 siteFooter
 siteMenu
+
+
+
+- email address
+- Twitter account
+- Facebook page
+- feedburner Rss
+- Twitterfeed
+-
+
+
