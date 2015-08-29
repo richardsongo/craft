@@ -1,6 +1,6 @@
-<header class="article-header">
+<header class="articleHeader">
 
-<div class="article-header-info">
+<div class="articleHeaderInfo">
 
 <div class="publish-date">
 <i class="icon icon-clock"></i><time datetime="2015-08-28T12:45:02-0400" pubdate="" itemprop="datePublished">Aug 28, 2015 <span class="pubtimestamp">@ 12:45 PM</span></time>
@@ -25,7 +25,7 @@
    </div>
 </div>
 
-
+{% include "_partials/share-buttons-side" %}
 
 
 
@@ -36,6 +36,12 @@
 {{ articleBody }}
 
 </section>
+
+<footer class="articleFooter">
+{% include "_partials/tags-bottom" %}
+{% include "_partials/share-buttons-bottom" %}
+</footer>
+
 </div>
 </div>
 
