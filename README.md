@@ -5,6 +5,6 @@ Templates
 Craft Filters:
 
 
-<strong>{{ some_html|striptags }}</strong>
+{{ some_html|striptags }}
 <p>The striptags filter strips SGML/XML (HTML) tags and replace adjacent whitespace by one space </p>
 
