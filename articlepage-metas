@@ -1,0 +1,56 @@
+<!-- Place this data between the <head> tags of your website /Page description. No longer than 155 characters/. -->
+<meta name="description" content="{{ entry.body | trimit(155) }}" />
+<link rel="canonical" href="{{ entry.url }}">
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="{{ entry.title | trimit(70) }}">
+<meta itemprop="description" content="{{ entry.body | trimit(155) }}">
+<meta itemprop="image" content="{% if image %}{{ image.getUrl('large') }}{% endif %}">
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card"  content="summary_large_image">
+<meta name="twitter:site"  content="@twittercreator">
+<meta name="twitter:title" content="{{ entry.title | trimit(70) }}">
+<meta name="twitter:url"   content="{{ entry.url }}">
+<meta name="twitter:description" content="{{ entry.body | trimit(200) }}">
+<meta name="twitter:creator" content="@twittercreator">
+
+<!-- Twitter summary card with large image must be at least 280x150px -->
+{% if image %}
+<meta name="twitter:image:src" content="{{ image.getUrl('large') }}">
+{% endif %}
+
+
+<!-- Open Graph data -->
+<meta property="og:title"  content="{{ entry.title }}" />
+<meta property="og:type"   content="article" />
+<meta property="og:url"    content="{{ entry.url }}" />
+{% if image %}
+<meta property="og:image"    content="{{ image.getUrl('large') }}" />
+<meta property="og:image:type"    content="image/jpeg" />
+<meta property="og:image:width"   content="512"  />
+<meta property="og:image:height"  content="512"  />
+{% endif %}
+<meta property="og:description" content="{{ entry.body | trimit(200) |e }}" />
+<meta property="og:site_name"   content="{{ siteName }}" />
+
+
+
+<meta property="article:published_time" content="{{ entry.postDate.format('F d, Y')|date('c') }}" />
+<meta property="article:modified_time"  content="{{ entry.postDate.format('F d, Y')|date('c') }}" />
+{% if entryCategory %}
+<meta property="article:section"  content="{{ entryCategory }}" />
+{% endif %}
+{% if entry.tags | length %}
+{% for tag in entry.tags %}
+<meta property="article:tag"  content="{{ tag.title | url_encode }}" />
+{% endfor %}
+{% endif %}
+<meta property="article:publisher"  content="https://www.facebook.com/facebookpage" />
+<meta property="article:publisher"  content="{{ siteName }}" />
+<!--<meta property="fb:admins" content="Facebook Numerical ID" />-->
+<meta property="article:publisher"  content="https://www.facebook.com/facebookpage">
+
+
+<meta property="fb:app_id" content="XXXXXXXXXXXXXXXx">
+<meta property="og:locale:alternate" content="fr_FR" />
