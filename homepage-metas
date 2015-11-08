@@ -15,5 +15,5 @@
 <meta property="og:site_name" content="{{ siteName }}" />
 <meta property="og:image" content="{{ siteOgImage }}" />
 
-<link rel="alternate" type="application/rss+xml" title="Analytics Platform - Piwik Feed" href="{{ siteFeed }}">
+<link rel="alternate" type="application/rss+xml" title="{{ siteTitle }} - {{ siteName }} Feed" href="{{ siteFeed }}">
 <link rel="icon" type="image/png" href="/favicon.png">
