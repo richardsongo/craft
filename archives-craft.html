@@ -1,0 +1,30 @@
+ARCHIVES BY MONTH USING CRAFT CMS
+Start with some navigation:
+
+{% set allEntries = craft.entries.section('blog').find() %}
+{% set entriesByMonth = allEntries|group("postDate.format('Y-m')") %}
+{% for month, entries in entriesByMonth %}
+<a href="{{ siteUrl }}blog/archive/{{ month }}">{{ month|date('F Y') }} ({{ entries|length }})</a>
+{% endfor %}
+Set a route within Craft like which looks like blog/archive/year-month and choose a template. In the chosen template, set some vars:
+
+{% if year is not defined %}
+	{% set year = now.year %}
+{% endif %}
+{% if month is not defined %}
+	{% set month = now.month %}
+{% endif %}
+{% if month != 12 %}
+	{% set nextmonth = month+1 %}
+	{% set nextyear = year %}
+{% else %}
+	{% set nextmonth = 01 %}
+	{% set nextyear = year+1 %}
+{% endif %}
+Then, display the entries:
+
+{% set entries = craft.entries.section('blog').depth(2).limit(null).after(year ~ '-' ~ month).before(nextyear ~ '-' ~ nextmonth).find() %}
+{% for entry in entries %}	
+	{{ entry.title }}
+{% endfor %}
+Updated: 18th December 2013
