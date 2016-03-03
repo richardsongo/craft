@@ -1,0 +1,15 @@
+{% set params = craft.entries.section('news') %}
+
+{# Get the prev/next elements #}
+{% set prevEntry = entry.getPrev(params) %}
+{% set nextEntry = entry.getNext(params) %}
+
+
+
+{% if prevEntry %}
+<a href="{{ prevEntry.url }}">{{ prevEntry.title }}</a>
+{% endif %}
+
+{% if nextEntry %}
+<a href="{{ nextEntry.url }}">{{ nextEntry.title }}</a>
+{% endif %}
