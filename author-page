@@ -1,0 +1,38 @@
+{# First, grab the username from the URI #}
+{% set username = craft.request.segment(2) %}
+
+{# Then, grab the user based on the username %}
+{% set user = craft.users.username(username).first() %}
+
+
+
+
+
+{# Make sure we actually found a user #}
+{% if user %}
+{% set blogPosts = craft.entries.section('blog').authorId(user.id).find() %}
+
+
+<figure>{{ user.photo}}</figure>
+<h1>{{ user.fullname }}
+<p>{{ user.bio}} </p>
+<hr>
+
+
+
+
+
+
+
+
+Found: {{ blogPosts|length }} blog posts.
+
+
+
+
+
+
+
+
+
+{% endif %}
