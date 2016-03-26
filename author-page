@@ -1,11 +1,72 @@
+
+<div class="large-3 columns author-column" style="width: 256px;">
+				<div id="item-header" role="complementary">
+
+					<section class="author-wrapper" itemscope="" itemtype="http://schema.org/Person">
+	<div class="author-info">
+		<div id="item-header-content">
+			<div class="author-avatar-wrapper">
+				<img src="http://cdn29.elitedaily.com/content/uploads/2015/11/19152431/12009823_1699021840309336_9178710480418362908_n-150x150.jpg" data-lazy-backup="http://cdn29.elitedaily.com/content/uploads/2015/11/19152431/12009823_1699021840309336_9178710480418362908_n-150x150.jpg" alt="Candice Jalili" class="avatar avatar-square-medium wp-user-avatar wp-user-avatar-square-medium alignnone photo" data-lazy-loaded="true" data-pin-nopin="true">			</div>
+
+			<div class="author-info-wrapper">
+				<h1 itemprop="name">Candice Jalili</h1>
+
+				<!-- Settings Icon -->
+				
+				<h6>Editor</h6>
+				<!-- Follow Button -->
+				<div id="item-buttons">
+										<div class="follow-button-wrapper hide-for-small-only">
+										</div>
+				</div>
+
+				<!-- Location -->
+				
+				<!-- Social -->
+				<div class="author-data">
+					<span class="icon-ed-social-twitter-1">
+					<a href="http://twitter.com/candicejalili" target="_blank" itemprop="sameAs">@candicejalili</a>
+					</span>
+					<span class="icon-ed-social-facebook">
+					<a href="//facebook.com/CandiceJaliliWriter" target="_blank" itemprop="sameAs">/CandiceJaliliWriter</a>
+					</span>				
+				</div>
+
+			<div class="author-posts-count">
+						<h2>
+							<span class="icon-ed-sign-in-fill"></span>
+							176 Articles						
+						</h2>
+					</div>
+					<p class="author-description" itemprop="description">
+					{{ user.bio}}
+					</p>
+				
+				<div class="author-data read-more-open">
+											<div id="latest-update"></div>
+				</div>
+
+				<!-- Contributor Disclaimer -->
+		</div>
+		
+	</div>
+	</div>
+</section>
+
+</div><!-- #item-header -->
+</div>
+			
+			
+			
+			
+
+
+
 {# First, grab the username from the URI #}
 {% set username = craft.request.segment(2) %}
 
 {# Then, grab the user based on the username %}
 {% set user = craft.users.username(username).first() %}
-
-
-
 
 
 {# Make sure we actually found a user #}
@@ -18,21 +79,7 @@
 <p>{{ user.bio}} </p>
 <hr>
 
-
-
-
-
-
-
-
 Found: {{ blogPosts|length }} blog posts.
-
-
-
-
-
-
-
 
 
 {% endif %}
