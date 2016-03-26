@@ -1,27 +1,43 @@
 
-<link rel="stylesheet" href="assets/css/bundle.min.css">
-<link rel="stylesheet" href="assets/css/main.css">
+<div class="articleSections" itemprop="articleSection">category</div>
 
-<div class="articleSections">category</div>
+{% if entryCategory | length > 0 %}
+<div class="category--name"><a href="{{ entryCategory.url }}">{{ entryCategory }}</a> </div>	
+{% endif %}
 
-<div class="articleHead">
-<h1 itemprop="headline">title</h1>
-<h2 itemprop="subtitle">subtitle</h2>
-<p class="articleDek" itemprop="description">description</p>
+
+
+<header class="articleHead">
+  
+    <h1 itemprop="headline"><a href="{{ url }}" rel="bookmark" itemprop="url">{{ entry.title }}</a></h1>
+    
+    <h2 itemprop="subtitle">{{ entry.subtitle }}</h2>
+    
+    <author itemprop="author" class="vcard">
+    <a href="https://moz.com/community/users/51074" class="fn author creator" title="{{ entry.author.fullName }}">{{ entry.author.fullName }}</a>
+    </author>
+     
+    <time class="updated icon-ed-clock" datetime="{{ entry.postDate.format('F d, Y')|date('c') }}">
+      <span class="dateStamp"> {{ entry.postDate.nice('F d, Y')}} </span>
+      <span class="timeStamp"> {{ entry.postDate.format('h:ia')}} </span>
+    </time>
+    
+    
+    <p class="articleDek" itemprop="description">{{ entry.summary | trimit(150) }}</p>
+    
+</header>
+
+<div class="story--image--thumb">
+    <a href="{{ entry.url }}">
+      <img src="{{ image.url }}" alt="{{ image.title }}" width="{{ image.width }}" height="{{ image.height }}">
+    </a>
 </div>
 
 <article class="articleBody" itemprop="articleBody" data-scope="content">
 
+{{ entry.body }}
 
 </article>
 
-<div class="articleFooter">
-
-
-</div>
-
-<footer></footer>
-<script src="assets/js/vendor/jquery-1.11.0.min.js"></script>
-<script src="assets/js/plugins.min.js"></script>
-<script src="assets/js/main.js"></script>
+<div class="articleFooter"></div>
 
