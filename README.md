@@ -13,6 +13,6 @@ Craft Filters:
 
 <code>{{ entry.author.socialTwitter }} </code>
 <code>{{ entry.author.socialFacebook }}</code>
-<code>{{ entry.author.fullName }}<br></code>
-<code>{{ entry.author.bio }}<br></code>
+<code>{{ entry.author.fullName }}</code>
+<code>{{ entry.author.bio }}</code>
 
