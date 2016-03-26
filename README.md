@@ -11,8 +11,12 @@ Craft Filters:
 
 <h2>Author Tags</h2>
 
-<code>{{ entry.author.socialTwitter }} </code>
-<code>{{ entry.author.socialFacebook }}</code>
-<code>{{ entry.author.fullName }}</code>
-<code>{{ entry.author.bio }}</code>
+<pre>
+
+{{ entry.author.socialTwitter }}
+{{ entry.author.socialFacebook }}
+{{ entry.author.fullName }}
+{{ entry.author.bio }}
+
+</pre>
 
