@@ -10,9 +10,9 @@ Craft Filters:
 
 
 <h2>Author Tags</h2>
-<code>
-{{ entry.author.socialTwitter }} <br>
-{{ entry.author.socialFacebook }}<br>
-{{ entry.author.fullName }}<br>
-{{ entry.author.bio }}<br>
-</code>
+
+<code>{{ entry.author.socialTwitter }} </code>
+<code>{{ entry.author.socialFacebook }}</code>
+<code>{{ entry.author.fullName }}<br></code>
+<code>{{ entry.author.bio }}<br></code>
+
