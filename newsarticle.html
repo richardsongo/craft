@@ -14,7 +14,7 @@
     <h2 itemprop="subtitle">{{ entry.subtitle }}</h2>
     
     <author itemprop="author" class="vcard">
-    <a href="https://moz.com/community/users/51074" class="fn author creator" title="{{ entry.author.fullName }}">{{ entry.author.fullName }}</a>
+    <a href="https://domain.com/author/fullname" class="author creator" title="{{ entry.author.fullName }}">{{ entry.author.fullName }}</a>
     </author>
      
     <time class="updated icon-ed-clock" datetime="{{ entry.postDate.format('F d, Y')|date('c') }}">
@@ -33,11 +33,77 @@
     </a>
 </div>
 
+{% if image | length > 0 %}
+<div class="featured-image-wrapper wp-caption">
+		<div class="featured-image--item" itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject">
+			<img width="{{ image.width }}" height="{{ image.height }}" src="{{ image.url }}" class="attachment-wide-full in-post-feat-img large-12 post-image" alt="{{ image.title }}s" title="{{ image.title }}">
+			<meta itemprop="url" content="{{ image.url }}">
+			<meta itemprop="width" content="{{ image.width }}">
+			<meta itemprop="height" content="{{ image.height }}">
+			<p class="caption-text" itemprop="caption">Getty Images</p>		
+		</div>
+</div>
+{% endif %}
+
+
+
+
 <article class="articleBody" itemprop="articleBody" data-scope="content">
 
 {{ entry.body }}
 
 </article>
 
-<div class="articleFooter"></div>
+
+<div class="articleFooter">
+  
+  <span class="story--metadata-tag" data-tag-display="World" data-tag-slug="world">
+    <a itemprop="keywords" rel="tag" class="story--metadata-link story--metadata-link--tag" href="/channel/world">
+    World
+    </a>
+  </span>  
+  
+</div>
+
+
+
+<div class="author-box">
+		<div class="author-info-wrapper">
+			<div class="author-info">
+
+				<a class="author-avatar" href="/users/username/">
+					<img src="{{ image.url }}" alt="Tom Casano" class="avatar avatar-square-medium user-avatar user-avatar-square-medium photo" data-pin-nopin="true">
+				</a>
+				<span class="icon-ed-dropdown right"></span>
+
+				<h2>
+					<author itemprop="author" class="vcard">
+						<a class="fn" href="http://domain.com/users/username/" title="Tom Casano">Username Lastname</a>
+					</author>
+				</h2>
+				
+				<h6 class="author-role-single">
+					Contributor<a href="http://twitter.com/username" class="icon-ed-social-twitter-1 author-social-link author-social-link-desktop" target="_blank"></a>					
+				</h6>
+				
+				<!-- Desktop Version -->
+				<div class="show-for-medium-up">
+					<p class="sponsor-description">
+						I'm passionate about self-improvement and supporting people to create the life that they want for themselves.  I love music, technology, lifehacks, and downtime.
+					</p>
+				</div>
+			</div>
+
+			<!-- Mobile Version -->
+			<div class="expand-bio-details" style="display: none;">
+				<div class="expand-bio-inner-wrapper">
+					<div class="author-social-link-wrapper-mobile"><a href="http://twitter.com/username" class="icon-ed-social-twitter-1 author-social-link author-social-link-mobile" target="_blank">Username</a></div>						
+					<p class="sponsor-description">
+						I'm passionate about self-improvement and supporting people to create the life that they want for themselves.  I love music, technology, lifehacks, and downtime.						
+					</p>
+				</div>
+			</div>
+		</div>
+</div>
+
 
