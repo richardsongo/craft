@@ -17,14 +17,15 @@
 
 
 
-<div class="large-3 columns author-column" style="width: 256px;">
+<div class="col-md-4">
 				<div id="item-header" role="complementary">
 
 					<section class="author-wrapper" itemscope="" itemtype="http://schema.org/Person">
 	<div class="author-info">
 		<div id="item-header-content">
 			<div class="author-avatar-wrapper">
-				<img src="/content/uploads/2015/11/19152431/12009823_1699021840309336_9178710480418362908_n-150x150.jpg" data-lazy-backup="http://cdn29.elitedaily.com/content/uploads/2015/11/19152431/12009823_1699021840309336_9178710480418362908_n-150x150.jpg" alt="Candice Jalili" class="avatar avatar-square-medium wp-user-avatar wp-user-avatar-square-medium alignnone photo" data-lazy-loaded="true" data-pin-nopin="true">			</div>
+				<img src="{{ user.photoUrl }}" alt="{{ user.fullName }}" class="avatar" data-pin-nopin="true">			
+			</div>
 
 			<div class="author-info-wrapper">
 				<h1 itemprop="name">{{ user.fullName }}</h1>
@@ -73,11 +74,12 @@
 
 </div><!-- #item-header -->
 </div>
+<div class="col-md-8">
 
 
 
 
 
 
-
+</div>
 {% endif %}
