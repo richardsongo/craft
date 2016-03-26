@@ -1,6 +1,7 @@
 
 {% extends "_layout" %}
-{% set title = "News" %}
+{% set title = category.title %}
+
 
 {% block content %}
 <h1>{{ category.title }}</h1>
@@ -23,7 +24,10 @@
 {% set entries = craft.entries.relatedTo(category) %}
 
 {# Output them #}
+
 <a href="{{ url }}">{{ newsEntry.title }}</a>
+or 
+{% include "_partials/entry-snippet" %}
 
 
 
