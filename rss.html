@@ -1,0 +1,25 @@
+{% header "Content-Type: application/rss+xml" %}
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+{% set rss = craft.entries({ section: 'yourChannel' }) %}
+
+<channel>
+  <title>Title Your RSS Feed</title>
+  <link>http://www.yourlink.com/</link>
+  <description>Enter a description here</description>
+  <language>en-us</language>
+  <atom:link href="{{ url() }}" rel="self" type="application/rss+xml" />
+
+  {% for item in rss %}
+  <item>
+    <title>{{ item.title }}</title>
+    <link>{{ item.url() }}</link>
+    <description>{{ item.description }}</description>
+    <pubDate>{{ item.postDate.rfc2822() }}</pubDate>
+    <guid>{{ item.url() }}</guid>
+  </item>
+  {% endfor %}
+</channel>
+
+</rss>
