@@ -3,77 +3,29 @@
 {% set title = "News" %}
 
 {% block content %}
-	<h1>News</h1>
+<h1>News</h1>
 
 	
 {# Paginate the News entries in groups of 4 #}
-		{% paginate craft.entries.section('news').relatedTo(category).limit(4) as newsEntries %}
+{% paginate craft.entries.section('news').relatedTo(category).limit(10) as newsEntries %}
 
-			{# Loop through this page's News entries #}
-			{% for newsEntry in newsEntries %}
+
+
+{# Loop through this page's News entries #}
+{% for newsEntry in newsEntries %}
 			
-                {% set entryCategory = newsEntry.categories.first() %}
+{% set entryCategory = newsEntry.categories.first() %}
+{# Figure out where this entry should link to #}
+{% set url = newsEntry.type.handle == 'link' ? newsEntry.linkUrl : newsEntry.url %}
 
-                
-				{# Figure out where this entry should link to #}
-				{% set url = newsEntry.type.handle == 'link' ? newsEntry.linkUrl : newsEntry.url %}
 
-				{# We give special treatment to the most recent News entry #}
-				{% set isFeaturedEntry = (loop.first and craft.request.pageNum == 1) %}
-				
-				<article class="row {% if isFeaturedEntry %}featured {% endif %}news-entry">
-					{% set image = newsEntry.logo.first() %}
-					{% if image %}
-						
-						
-						{% if isFeaturedEntry %}
-						<figure class="col-md-6">
-							<a href="{{ url }}">
-								
-									<img src="{{ image.getUrl() }}" alt="{{ image.title }}" width="570" height="348">
-								
-							
-							</a>
-						</figure>
-						{% else %}
-						
-							<figure class="col-md-4">
-							<a href="{{ url }}">
-									<img src="{{ image.getUrl('small') }}" alt="{{ image.title }}" width="280" height="204">
-							</a>
-						</figure>
-						
-						{% endif %}
-						
-						
-						
-					{% endif %}
 
-					<div class="col-md-6 summary-wrap">
-						<h3><a href="{{ url }}">{{ newsEntry.title }}</a></h3>
 
-						{% if isFeaturedEntry %}
-							<span class="author">{{ newsEntry.author.name }}</span>
-						{% endif %}
 
-						{{ newsEntry.body | trimit(400) }}
+{% endfor %}
 
-						<p>
-							{% if newsEntry.type == 'link' %}
-								<a href="{{ url }}" class="more-link">Check it out</a>
-							{% else %}
-								{% if not isFeaturedEntry %}
-									<span class="author">{{ newsEntry.author.getFullName() }}</span>
-									<span class="separator">|</span>
-								{% endif %}
-								<span class="category"><strong><a href="{{ entryCategory.url }}">{{ entryCategory }}</a></strong> </span><a href="{{ url }}" class="more-link">Read More</a>
-							{% endif %}
-						</p>
-					</div>
-				</article>
-			{% endfor %}
 
-			<hr class="horz-rule">
+
 
 			<div id="pagination">
 				<ul class="pagination pagination-sm">
@@ -96,6 +48,7 @@
 					{% endif %}
 				</ul>
 			</div>
-		{% endpaginate %}
-	
+			
+{% endpaginate %}
+
 {% endblock %}
