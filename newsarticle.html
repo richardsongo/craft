@@ -82,7 +82,7 @@
 
 				<h2>
 					<author itemprop="author" class="vcard">
-						<a class="fn" href="http://domain.com/users/username/" title="Tom Casano">Username Lastname</a>
+						<a class="fn" href="http://domain.com/users/username/" title="{{ entry.author.fullName }}">{{ entry.author.fullName }}</a>
 					</author>
 				</h2>
 				
@@ -101,7 +101,7 @@
 			<!-- Mobile Version -->
 			<div class="expand-bio-details" style="display: none;">
 				<div class="expand-bio-inner-wrapper">
-					<div class="author-social-link-wrapper-mobile"><a href="http://twitter.com/username" class="icon-ed-social-twitter-1 author-social-link author-social-link-mobile" target="_blank">Username</a></div>						
+					<div class="author-social-link-wrapper-mobile"><a href="http://twitter.com/username" class="icon-ed-social-twitter-1 author-social-link author-social-link-mobile" target="_blank">{{ entry.author.fullName }}</a></div>						
 					<p class="sponsor-description">
 						I'm passionate about self-improvement and supporting people to create the life that they want for themselves.  I love music, technology, lifehacks, and downtime.						
 					</p>
