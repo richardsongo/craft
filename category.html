@@ -19,6 +19,11 @@
 {% set url = newsEntry.type.handle == 'link' ? newsEntry.linkUrl : newsEntry.url %}
 
 
+{# Fetch all of the entries related to this category #}
+{% set entries = craft.entries.relatedTo(category) %}
+
+{# Output them #}
+<a href="{{ url }}">{{ newsEntry.title }}</a>
 
 
 
