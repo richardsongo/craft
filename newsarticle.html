@@ -71,9 +71,13 @@
 		<div class="author-info-wrapper">
 			<div class="author-info">
 
+                               {% if entry.author.photoUrl|length %}
 				<a class="author-avatar" href="/users/username/">
-					<img src="{{ image.url }}" alt="Tom Casano" class="avatar avatar-square-medium user-avatar user-avatar-square-medium photo" data-pin-nopin="true">
+					<img src="{{ entry.author.photoUrl(84) }}" alt="Author Name" class="avatar avatar-square-medium user-avatar user-avatar-square-medium photo" data-pin-nopin="true">
 				</a>
+				{% else %}
+				no photo
+				{% endif %} 
 				<span class="icon-ed-dropdown right"></span>
 
 				<h2>
