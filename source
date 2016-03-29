@@ -1,0 +1,8 @@
+{% if entry.source | length %}
+<p class="meta-source">
+[ <strong>Source:</strong>
+{% for block in entry.source.type('text') %}
+<a href="{{ block.sourceLink }}" rel="external" title="{{ block.sourceName }}" class="source-item ext-link" target="_blank">{{ block.sourceName }}</a> 
+{% endfor %}
+] </p>
+{% endif %}
