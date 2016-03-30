@@ -1,0 +1,17 @@
+
+<p>
+Create two Sections called Issues and Articles<br>
+Create an Entries field called Issue_Articles, with the Articles section selected.<br>
+Edit your Issues section’s Entry Type, and add the Issue Articles field to its Field Layout.<br>
+Now, each issue will be represented by an entry within your Issues section, and each article will be represented by an entry within your Articles section.
+</p>
+
+<pre>
+{% set articles = craft.entries({
+    section: 'articles',
+    relatedTo: ['and',
+        { targetElement: category },
+        { sourceElement: craft.entries.section('issues').status(null) }
+    ]
+}) %}
+</pre>
