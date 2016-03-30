@@ -7,11 +7,24 @@ Now, each issue will be represented by an entry within your Issues section, and 
 </p>
 
 <pre>
-{% set articles = craft.entries({
+
+{% set entries = craft.entries({
     section: 'articles',
-    relatedTo: ['and',
-        { targetElement: category },
-        { sourceElement: craft.entries.section('issues').status(null) }
-    ]
+    relatedTo: { sourceElement: entry, field: "issueArticles" },
+    order:     "sortOrder",
+    limit:     null
 }) %}
+
+
+- Issue ( Title, Image, Publication Date, )
+ - Article
+ - Article
+ - Article
+ 
+
+
+
+
+
+
 </pre>
