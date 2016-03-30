@@ -15,6 +15,10 @@ Now, each issue will be represented by an entry within your Issues section, and 
     limit:     null
 }) %}
 
+or
+
+{% for entry in craft.entries.section('articles').relatedTo(entry) %}
+  
  or
 
  
@@ -37,13 +41,26 @@ Now, each issue will be represented by an entry within your Issues section, and 
 
 
 
-- Issue ( Title, Image, Publication Date, )
- - Article
- - Article
- - Article
+
  
 
+Reversed Relation:
+---------------------------------------------------------------------------------------------
 
+Eg: Theme / Issue Page
+
+{% block content %}
+    <div class="panel">
+    <h1>{{ entry.title }}</h1>
+
+    {{ entry.body }}
+    </div>
+
+    {% for entry in craft.entries.section('sermons').relatedTo(entry) %}
+        {{ entry.title }}
+    {% endfor %}
+    
+{% endblock %}
 
 
 
