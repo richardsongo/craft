@@ -15,6 +15,27 @@ Now, each issue will be represented by an entry within your Issues section, and 
     limit:     null
 }) %}
 
+ or
+
+ 
+{% set entries = entry.entriesFieldHandle %}
+
+{% if entries | length %}
+
+    <h3>Some great entries</h3>
+    {% for entry in entries %}
+        
+        <h3>{{ entry.entryCategory }}</h3>
+        <h3>{{ entry.title }}</h3>
+        <h3>{{ entry.subtitle }}</h3>
+        <p>{{ entry.body }}</p>
+        
+        
+    {% endfor %}
+
+{% endif %}
+
+
 
 - Issue ( Title, Image, Publication Date, )
  - Article
