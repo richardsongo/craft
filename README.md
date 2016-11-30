@@ -29,7 +29,7 @@ Craft Filters:
 {% set firstEntry = entries[0] %}
 {% set remainingEntries = entries|without(firstEntry) %}
 
-<h2> 2. Conditionals <h2>
+<h2> 2. Conditionals </h2>
 
 {% if something == 'value' %}
     ...
@@ -38,4 +38,21 @@ Craft Filters:
 {% else %}
     ...
 {% endif %}
+
+
+{% for block in contactDetails.myMatrixField %}
+     {{ block.location }}
+     {{ block.address }}
+{% endfor %}
+
+{% for block in socialNetworks.socialLinks %}
+{% if block.facebook %}     {{ block.facebook }}  {% endif %}
+{% if block.twitter %}      {{ block.twitter }}   {% endif %}
+{% if block.youtube %}      {{ block.youtube }}   {% endif %}
+{% if block.instagram %}    {{ block.instagram }} {% endif %}
+{% endfor %}
+
+
+F	A full textual representation of a month, such as January or March
+{{ entry.postDate | date("d M, Y") }}
 
