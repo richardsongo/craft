@@ -51,8 +51,16 @@ Craft Filters:
 {% if block.youtube %}      {{ block.youtube }}   {% endif %}
 {% if block.instagram %}    {{ block.instagram }} {% endif %}
 {% endfor %}
-
-
+<pre>
+				<ul>
+				<li id="facebook"> <a href="https://www.facebook.com/musician_site" target="_blank" alt="Facebook" title="Facebook">  <i class="fa fa-facebook"></i>   </a></li>
+				<li id="twitter">  <a href="https://twitter.com/musician_site" target="_blank" alt="Twitter" title="Twitter">          <i class="fa fa-twitter"></i>    </a></li>
+				<li id="youtube">  <a href="https://www.youtube.com/user/musician_site" target="_blank" alt="YouTube" title="YouTube"> <i class="fa fa-youtube"></i>    </a></li>
+				<li id="itunes">   <a href="https://itunes.apple.com/us/artist/musician_site/" target="_blank" alt="iTunes" title="iTunes"> <i class="fa fa-instagram"></i> </a></li>
+				</ul>
+ </pre>               
+                
+                
 F	A full textual representation of a month, such as January or March
 {{ entry.postDate | date("d M, Y") }}
 
