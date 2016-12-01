@@ -30,7 +30,7 @@ Craft Filters:
 {% set remainingEntries = entries|without(firstEntry) %}
 
 <h2> 2. Conditionals </h2>
-
+<pre>
 {% if something == 'value' %}
     ...
 {% elseif somethingElse == 'otherValue' %}
@@ -51,7 +51,7 @@ Craft Filters:
 {% if block.youtube %}      {{ block.youtube }}   {% endif %}
 {% if block.instagram %}    {{ block.instagram }} {% endif %}
 {% endfor %}
-
+</pre>
 <div class="highlight highlight-text-html-django">
 <pre>
 <ul>
@@ -62,7 +62,7 @@ Craft Filters:
 </ul>
  </pre>               
 </div>               
-                
+  <pre>              
 F	A full textual representation of a month, such as January or March
 {{ entry.postDate | date("d M, Y") }}
-
+</pre>
