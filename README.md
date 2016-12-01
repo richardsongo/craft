@@ -54,12 +54,12 @@ Craft Filters:
 
 <div class="highlight highlight-text-html-django">
 <pre>
-				<ul>
-				<li id="facebook"> <a href="https://www.facebook.com/musician_site" target="_blank" alt="Facebook" title="Facebook">  <i class="fa fa-facebook"></i>   </a></li>
-				<li id="twitter">  <a href="https://twitter.com/musician_site" target="_blank" alt="Twitter" title="Twitter">          <i class="fa fa-twitter"></i>    </a></li>
-				<li id="youtube">  <a href="https://www.youtube.com/user/musician_site" target="_blank" alt="YouTube" title="YouTube"> <i class="fa fa-youtube"></i>    </a></li>
-				<li id="itunes">   <a href="https://itunes.apple.com/us/artist/musician_site/" target="_blank" alt="iTunes" title="iTunes"> <i class="fa fa-instagram"></i> </a></li>
-				</ul>
+<ul>
+<li id="facebook"><a href="#" target="_blank" alt="Facebook" title="Facebook">  <i class="fa fa-facebook"></i>   </a></li>
+<li id="twitter"><a href="#" target="_blank" alt="Twitter" title="Twitter">          <i class="fa fa-twitter"></i>    </a></li>
+<li id="youtube"><a href="#" target="_blank" alt="YouTube" title="YouTube"> <i class="fa fa-youtube"></i>    </a></li>
+<li id="itunes"><a href="#" target="_blank" alt="iTunes" title="iTunes"> <i class="fa fa-instagram"></i> </a></li>
+</ul>
  </pre>               
 </div>               
                 
