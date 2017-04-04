@@ -71,6 +71,7 @@ F	A full textual representation of a month, such as January or March
 <h2>Is it possible to change a loop if mobile browser is detected?</h2>
 <p>http://craftcms.stackexchange.com/questions/11250/is-it-possible-to-change-a-loop-if-mobile-browser-is-detected
 </p>
+<pre>
 {% if craft.request.isMobileBrowser %}
     {% for batch in craft.entries.section('afval')|batch(2) %}
         ...
@@ -80,10 +81,12 @@ F	A full textual representation of a month, such as January or March
         ...
     {% endfor %}
 {% endif %}
-
+</pre>
 Or 
+<pre>
 {% set batch = craft.request.isMobileBrowser ? 2 : 3 %}
 
 {% for batch in craft.entries.section('afval') | batch(batch) %}
     ...
 {% endfor %}
+</pre>
