@@ -90,3 +90,15 @@ Or
     ...
 {% endfor %}
 </pre>
+
+<h2>Check and remove repeat entries from loop</h2>
+
+{% set existingIds = [] %}
+
+{% for event in events %}
+    {% if event.id not in existingIds %}
+        {{ event.title }}
+
+        {% set existingIds = existingIds|merge([event.id]) %}
+    {% endif %}
+{% endfor %}
