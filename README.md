@@ -66,3 +66,24 @@ Craft Filters:
 F	A full textual representation of a month, such as January or March
 {{ entry.postDate | date("d M, Y") }}
 </pre>
+
+
+<h2>Is it possible to change a loop if mobile browser is detected?</h2>
+<p>http://craftcms.stackexchange.com/questions/11250/is-it-possible-to-change-a-loop-if-mobile-browser-is-detected
+</p>
+{% if craft.request.isMobileBrowser %}
+    {% for batch in craft.entries.section('afval')|batch(2) %}
+        ...
+    {% endfor %}
+{% else %}
+    {% for batch in craft.entries.section('afval')|batch(3) %}
+        ...
+    {% endfor %}
+{% endif %}
+
+Or 
+{% set batch = craft.request.isMobileBrowser ? 2 : 3 %}
+
+{% for batch in craft.entries.section('afval') | batch(batch) %}
+    ...
+{% endfor %}
