@@ -52,16 +52,19 @@ Craft Filters:
 {% if block.instagram %}    {{ block.instagram }} {% endif %}
 {% endfor %}
 </pre>
-<div class="highlight highlight-text-html-django">
+
 <pre>
+<div class="highlight highlight-text-html-django">
+
 <ul>
 <li id="facebook"><a href="#" target="_blank" alt="Facebook" title="Facebook">  <i class="fa fa-facebook"></i>   </a></li>
 <li id="twitter"><a href="#" target="_blank" alt="Twitter" title="Twitter">          <i class="fa fa-twitter"></i>    </a></li>
 <li id="youtube"><a href="#" target="_blank" alt="YouTube" title="YouTube"> <i class="fa fa-youtube"></i>    </a></li>
 <li id="itunes"><a href="#" target="_blank" alt="iTunes" title="iTunes"> <i class="fa fa-instagram"></i> </a></li>
-</ul>
- </pre>               
-</div>               
+</ul>              
+</div>
+</pre>
+
   <pre>              
 F	A full textual representation of a month, such as January or March
 {{ entry.postDate | date("d M, Y") }}
