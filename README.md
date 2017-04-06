@@ -102,3 +102,17 @@ Or
         {% set existingIds = existingIds|merge([event.id]) %}
     {% endif %}
 {% endfor %}
+
+<h2>Slide Count</h2>
+
+<pre>
+{% set slides = craft.entries.section('events').featured('1').limit(null) %}
+
+{% set count = 0 %}
+{% for slide in slides %}
+    {% if count < 5 and slide.dateTime|date_modify('tomorrow 5am')|date('U') < now|date('U') %}
+        {{ slide.dateTime }}
+        {% set count = count + 1 %}
+    {% endif %}
+{% endfor %}
+</pre>
