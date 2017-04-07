@@ -10,23 +10,19 @@
 				</figure>
 
 				<h2 itemprop="headline" class="h3">{{ entry.title }}</h2>
-        
+       
 				<span class="date">{% if entryCategory %} {{ entryCategory }} / {% endif %} {{ entry.postDate|date('j F, Y') }} </span>
 
 			{% if entry.summary |length %}
-
 		        <p class="story-summary">
 		        	{{ entry.summary|hacksaw(hack='c', limit='150') }}
 		        	<span class="arrow-right">Read more</span>
 		        </p>
-
 			{% else %}
-
 		        <p class="story-summary">
 		        	{{ entry.body|hacksaw(hack='c', limit='150') }}
 					<span class="arrow-right">Read more</span>
 				</p>
-
 			{% endif %}
 			
 		</a>
