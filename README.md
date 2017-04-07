@@ -44,7 +44,10 @@ Craft Filters:
      {{ block.location }}
      {{ block.address }}
 {% endfor %}
+</pre>
 
+<h2> Sharring </h2>
+<pre>
 {% for block in socialNetworks.socialLinks %}
 {% if block.facebook %}     {{ block.facebook }}  {% endif %}
 {% if block.twitter %}      {{ block.twitter }}   {% endif %}
@@ -53,17 +56,7 @@ Craft Filters:
 {% endfor %}
 </pre>
 
-<pre>
-<div class="highlight highlight-text-html-django">
 
-<ul>
-<li id="facebook"><a href="#" target="_blank" alt="Facebook" title="Facebook">  <i class="fa fa-facebook"></i>   </a></li>
-<li id="twitter"><a href="#" target="_blank" alt="Twitter" title="Twitter">          <i class="fa fa-twitter"></i>    </a></li>
-<li id="youtube"><a href="#" target="_blank" alt="YouTube" title="YouTube"> <i class="fa fa-youtube"></i>    </a></li>
-<li id="itunes"><a href="#" target="_blank" alt="iTunes" title="iTunes"> <i class="fa fa-instagram"></i> </a></li>
-</ul>              
-</div>
-</pre>
 
   <pre>              
 F	A full textual representation of a month, such as January or March
@@ -122,37 +115,4 @@ Or
 
 
 
-<pre>
-<article class="col-md-4 col-sm-6 col-xs-12 newsitem space-lg-5">
-	<div class="newsitem-inner">
 
-		<a href="{{ entry.url }}">
-
-				<figure>
-					<img src="{{ image.url }}" alt="{{ image.title }}" width="{{ image.width }}" height="{{ image.height }}">
-				</figure>
-
-				<h2 itemprop="headline" class="h3">{{ column.title }}</h2>
-				<span class="date text-copy">{% if entryCategory %} {{ entryCategory }} / {% endif %} {{ column.postDate|date('j F, Y') }} </span>
-
-			{% if column.summary |length %}
-
-		        <p class="post-summary story-summary hidden-xs">
-		        	{{ column.summary|hacksaw(hack='c', limit='150') }}
-		        	<span class="arrow-right">Read more</span>
-		        </p>
-
-			{% else %}
-
-		        <p class="post-summary story-summary hidden-xs">
-		        	{{ column.body|hacksaw(hack='c', limit='150') }}
-					<span class="arrow-right">Read more</span>
-				</p>
-
-			{% endif %}
-			
-		</a>
-
-	</div>
-</article>
-</pre>
