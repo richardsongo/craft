@@ -1,0 +1,21 @@
+<div id="pagination">
+    <ul class="pagination pagination-sm">
+        {% if paginate.prevUrl %}
+          <li><a href="{{ paginate.prevUrl }}" class="pag-prev-link">Previous Page</a></li>
+        {% endif %}
+
+        {% for page, url in paginate.getPrevUrls(5) %}
+          <li><a href="{{ url }}">{{ page }}</a></li>
+        {% endfor %}
+
+        <li class="current active on"><a href="{{ url }}">{{ paginate.currentPage }}</a></li>
+
+        {% for page, url in paginate.getNextUrls(5) %}
+          <li><a href="{{ url }}">{{ page }}</a></li>
+        {% endfor %}
+
+        {% if paginate.nextUrl %}
+          <li><a href="{{ paginate.nextUrl }}" class="pag-next-link">Next Page</a></li>
+        {% endif %}
+    </ul>
+</div>
