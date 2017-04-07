@@ -1,41 +1,41 @@
-
 {% extends "_layout" %}
 {% set title = category.title %}
 
-
 {% block content %}
-<h1><a href="{{ category.url }}">{{ category.title }}</a></h1>
 
+<section>
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+
+<h1 id="page-title">{{ category.title }}</h1>
+
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+
+<div class="news-items">
 	
-{# Paginate the News entries in groups of 4 #}
 {% paginate craft.entries.section('news').relatedTo(category).limit(10) as newsEntries %}
 
-
-
-{# Loop through this page's News entries #}
 {% for newsEntry in newsEntries %}
-			
-{% set entryCategory = newsEntry.categories.first() %}
-{# Figure out where this entry should link to #}
-{% set url = newsEntry.type.handle == 'link' ? newsEntry.linkUrl : newsEntry.url %}
+	
+	{% set image = newsEntry.featuredImage.first() %}
+	{% set entryCategory = newsEntry.categories.first() %}
 
-
-{# Fetch all of the entries related to this category #}
-{% set entries = craft.entries.relatedTo(category) %}
-
-{# Output them #}
-
-<a href="{{ url }}">{{ newsEntry.title }}</a>
-or 
-{% include "_partials/entry-snippet" %}
-
-
-
+	{% include "_partials/entry-item" %}
+		
 {% endfor %}
 
+{% include "_partials/pagination" %}
 
-
-
-
-
+</div>	
+</div>
+</div>		
+		
+		
+</div>
+</section>	
 {% endblock %}
