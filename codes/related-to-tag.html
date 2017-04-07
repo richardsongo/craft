@@ -1,4 +1,5 @@
 {% set tags = entry.q_tags.first %}
+
 {% set entries = craft.entries({
   relatedTo:      tags,
   order:          'score',
