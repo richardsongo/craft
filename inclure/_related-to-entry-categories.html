@@ -1,0 +1,88 @@
+
+{% set entries = craft.entries({
+section: 'news',
+limit: 3,
+order: postDate,
+relatedTo: entry.categories,
+id: 'not ' ~ entry.id
+})
+%}
+
+{% set entryCategory = entry.categories.first() %}
+	                
+
+
+{% if entries | length > 0 %}
+
+<div class="similar-storie desktop-similar-storie">
+
+
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="blok-title">Related</h2> 
+  </div>
+</div>
+
+                
+			
+                
+{% for entry in entries %}
+
+{% set image = entry.featuredImage.first() %}
+
+{% set transform = {
+    mode: 'crop',
+    width: 254,
+    height: 127,
+    quality: 75,
+    position: 'center-center'
+} 
+%}
+{% do image.setTransform(transform) %}
+
+                
+                
+<div class="row">             
+	<div class="col-xs-4">
+	
+		<a href="{{ entry.url }}">
+		<figure style="width:100%">
+		<img style="width:100%" src="{{ image.url }}" alt="{{ image.title }}" width="{{ image.width }}" height="{{ image.height }}">
+		</figure>
+		</a>
+	
+	
+	</div>	
+	<div class="col-xs-8">
+	
+	  <section class="content-text">
+    
+		{% if entryCategory %}
+      <h4><a href="{{ entryCategory.url }}">{{ entryCategory }}</a></h4>
+    {% endif %}
+		
+		<h2><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
+		
+		{% if entry.summary |length %}
+		  <p class="story-summary hidden-xs">{{ entry.summary }}</p>
+		{% else %}
+		  <p class="story-summary hidden-xs">{{ entry.body | trimit(120) }}</p>
+		{% endif %}
+    
+		</section>
+    
+	</div>
+
+</div>	
+	
+			
+			
+			
+{% endfor %}
+              
+
+              
+				  
+    
+</div>
+{% endif %}
