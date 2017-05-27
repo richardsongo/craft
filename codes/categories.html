@@ -1,0 +1,11 @@
+{% set categories = craft.categories.relatedTo(entry) %}
+{% set featuredCategory = craft.categories.slug('featured').first() %}
+
+{% set allIds = [] %}
+{% for id in categories.ids() if id != featuredCategory.id %}
+    {% set allIds = allIds|merge([id]) %}
+{% endfor %}
+{% set categories = craft.categories.relatedTo(entry) %}
+
+
+
