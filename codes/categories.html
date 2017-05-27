@@ -7,5 +7,28 @@
 {% endfor %}
 {% set categories = craft.categories.relatedTo(entry) %}
 
+https://craftcms.stackexchange.com/questions/9212/how-do-i-group-entries-by-category-and-retain-fixed-category-order
 
+{# Pull entries, group by category field "projectCategory" #}
+{% set entries = craft.entries.section( 'projects' ) | group( 'projectCategory.first().title' ) %}
 
+{# Get all category titles for the category group "yourProjectCategoryHandle" #}
+{% set categories = craft.categories.group( 'yourProjectCategoryHandle' ).titles %}
+
+{# Loop through the category title array #}
+{% for category in categories %}
+
+    {# Get the entries grouped under the current category title (if any) #}
+    {% set catEntries = entries[ '' ~ category ] | default( [] ) %}
+
+    {# Print the category title and entries #}
+    {% if catEntries | length %}
+    <h4 class="sc">{{ category }}</h4>
+    <ul class="no-bullet">
+        {% for entry in catEntries %}
+            <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+        {% endfor %} {# -- // for entry -- #}
+    </ul>
+    {% endif %}
+
+{% endfor %}
