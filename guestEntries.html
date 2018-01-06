@@ -1,0 +1,11 @@
+ <select name="fields[honorific]">
+     {% for honortitle in entry.honorific.options %}
+         {% set chosen = false %}
+
+         {% if honortitle.selected %}
+             {% set chosen = true %}
+         {% endif %}
+
+         <option value="{{ honortitle.value }}"{% if chosen %} selected{% endif %}>{{ honortitle.label }}</option>
+    {% endfor %}
+ </select>
