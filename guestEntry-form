@@ -32,6 +32,24 @@
     <label for="title">Title</label>
     <input class="form-control" id="title" type="text" name="title"></fieldset>
 
+
+
+ <select name="fields[honorific]">
+     {% for honortitle in entry.honorific.options %}
+         {% set chosen = false %}
+
+         {% if honortitle.selected %}
+             {% set chosen = true %}
+         {% endif %}
+
+         <option value="{{ honortitle.value }}"{% if chosen %} selected{% endif %}>{{ honortitle.label }}</option>
+    {% endfor %}
+ </select>
+
+
+
+
+
 <div id="tags">
     {% for tag in craft.tags.group('default').limit(null) %}
         <label>
