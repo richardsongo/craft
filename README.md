@@ -61,6 +61,10 @@ Craft Filters:
 <pre>              
 F	A full textual representation of a month, such as January or March
 
+Friday, December 22
+{{ entry.postDate | date("d, F d") }}
+
+
 
 {{ entry.postDate | date("d M, Y") }}
 
