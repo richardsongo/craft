@@ -1,0 +1,103 @@
+ <form id="submit" class="content">
+
+  <h2>Press Release <span>[-]</span></h2>
+  
+  <fieldset id="primary">
+    
+    <label>Title <span class="required">*</span></label>
+    <input class="big required text" type="text" name="fields[title]" value="" placeholder="Enter the title of the release." />
+    
+    <div class="half">
+      <label>Location <span class="required">*</span></label>
+      <input class="required text" type="text" name="fields[excerpt]" value="" placeholder="ex. Raleigh, NC" />
+    </div>
+    
+    <div class="half">
+      <label>Date (MM/DD/YYYY) <span class="required">*</span></label>
+      <input class="required text" type="text" name="fields[date]" value="01/10/2018" />
+    </div>
+    
+    <div class="clear">&nbsp;</div>
+    <label>Content <span class="required">*</span></label>
+    <textarea class="required" id="submit-content" name="fields[content]" placeholder="Enter the contents of the release. Do not include the date or company description."></textarea>
+  
+  </fieldset>
+  
+  
+  
+  <h2>Press Contact <span>[+]</span></h2>
+  
+  <fieldset id="contact" class="hidden">
+    <label>Name</label>
+    <input class="big text" type="text" name="contact-name" name="fields[contactName]" value="" placeholder="John Smith" />
+    <div class="half">
+      <label>Email</label>
+      <input class="email text" type="text" name="contact-email" name="fields[contactEmail]" value="" placeholder="email@example.com" />
+    </div>
+    <div class="half">
+      <label>Phone</label>
+      <input class="text" type="text" name="contact-phone" name="fields[contactPhone]" value="" placeholder="###-###-####" />
+    </div>
+    <div class="clear">&nbsp;</div>
+  </fieldset>
+  
+ 
+ 
+ 
+ <h2>Company Information <span>[-]</span></h2>
+  
+  <fieldset id="contact" class="hidden">
+    <label>Website URL <span class="required">*</span></label>
+    
+    <input class="required url text" type="text" name="company-website" value="" placeholder="http://www.abc-company.com" style="margin-bottom: 3px;"/>
+    <p style="margin-bottom: 6px;"><a href="#" id="load-company-data">Use existing data</a> for this URL from an earlier press release.</p>
+    
+    <label>Company Name <span class="required">*</span></label>
+    <input class="big required text" type="text" name="fields[companyName]" value=""   
+       placeholder="ABC Corporation"
+       />
+    
+    <div id="new-company">
+    <label>Mini-Bio <span class="required">*</span></label>
+    <textarea class="required" id="submit-content" name="fields[companyContent]">
+      {%- if entry is defined %}{{ entry.body }}{% endif -%}
+    </textarea>
+      
+      
+      
+      <label>Blog URL</label>
+      <input class="url text" type="text" name="company-blog" value="" placeholder="http://www.abc-company.com/blog"/>
+      
+      <label>Twitter URL</label>
+      <input class="url text" type="text" name="company-twitter" value="" placeholder="http://www.twitter.com/abc"/>
+      
+      <label>LinkedIn URL</label>
+      <input class="url text" type="text" name="company-linkedin" value="" placeholder="http://www.linkedin.com/abc"/>
+      
+      <label>Facebook URL</label>
+      <input class="url text" type="text" name="company-facebook" value="" placeholder="http://www.facebook.com/abc"/>
+    </div><!-- newcompany -->
+  </fieldset>
+  
+  
+  
+  
+  <h2>Multimedia Attachments <span>[+]</span></h2>
+  
+  <fieldset id="contact" class="hidden">
+    <label>URL</label>
+    <input class="url text" type="text" name="attachmentOne" value="" placeholder="http://www.youtube.com/watch?v=Fm4krqIdfTA"/>
+    
+    <label>URL</label>
+    <input class="url text" type="text" name="attachmentTwo" value="" placeholder="http://www.slideshare.net/PresentationAdvisors/social-media-for-business-5456817"/>
+    
+    <label>URL</label>
+    <input class="url text" type="text" name="attachmentThree" value="" placeholder="http://www.flickr.com/photos/gethifi/4644754819/"/>
+  </fieldset>
+  
+  <br/>
+  
+  <input type="submit" value="Submit Form"/>
+
+
+</form>
