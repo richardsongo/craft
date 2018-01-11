@@ -24,13 +24,13 @@ Craft Filters:
 
 
 <h2>Entries except the first one</h2>
-
+<pre>
 {% set entries = craft.entries.section('articles').limit(3).find %}
 {% set firstEntry = entries[0] %}
 {% set remainingEntries = entries|without(firstEntry) %}
 
 <h2> 2. Conditionals </h2>
-<pre>
+
 {% if something == 'value' %}
     ...
 {% elseif somethingElse == 'otherValue' %}
@@ -49,18 +49,25 @@ Craft Filters:
 <h2> Sharring </h2>
 <pre>
 {% for block in socialNetworks.socialLinks %}
-{% if block.facebook %}     {{ block.facebook }}  {% endif %}
-{% if block.twitter %}      {{ block.twitter }}   {% endif %}
-{% if block.youtube %}      {{ block.youtube }}   {% endif %}
-{% if block.instagram %}    {{ block.instagram }} {% endif %}
+  {% if block.facebook %}     {{ block.facebook }}  {% endif %}
+  {% if block.twitter %}      {{ block.twitter }}   {% endif %}
+  {% if block.youtube %}      {{ block.youtube }}   {% endif %}
+  {% if block.instagram %}    {{ block.instagram }} {% endif %}
 {% endfor %}
 </pre>
 
 
 
-  <pre>              
+<pre>              
 F	A full textual representation of a month, such as January or March
+
+
 {{ entry.postDate | date("d M, Y") }}
+
+17 January 2018:
+{{ entry.postDate | date("d F, Y") }}
+
+
 </pre>
 
 
