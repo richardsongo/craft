@@ -1,4 +1,8 @@
- <form id="submit" class="content">
+ <form method="post" action="" accept-charset="UTF-8">
+    {{ csrfInput() }}
+    <input type="hidden" name="action" value="guest-entries/save">
+    <input type="hidden" name="redirect" value="{{ 'success'|hash }}">
+    <input type="hidden" name="sectionId" value="3">
 
   <h2>Press Release <span>[-]</span></h2>
   
@@ -66,7 +70,7 @@
       
       
       <label>Blog URL</label>
-      <input class="url text" type="text" name="company-blog" value="" placeholder="http://www.abc-company.com/blog"/>
+      <input class="url text" type="text" name="fields[companyBlog]" value="" placeholder="http://www.abc-company.com/blog"/>
       
       <label>Twitter URL</label>
       <input class="url text" type="text" name="company-twitter" value="" placeholder="http://www.twitter.com/abc"/>
