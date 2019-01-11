@@ -208,7 +208,7 @@ or
 
 
 <h2>Contributors</h2>
-
+<code>
 <div class="contributors-images">
     
     {% for authors in entry.contributors %}
@@ -233,6 +233,8 @@ or
     {% endfor %}
 
 </div>
+
+</code>
 
 
 
