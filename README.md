@@ -153,9 +153,34 @@ Or
 
 
 
+<h3>With Eager Load </h3>
+
+    {% set recentEntries = craft.entries()
+        .section('news')
+        .with([ 
+                ['featuredImage', { kind: 'image' }]
+              ])
+        .limit(4) 
+    %}
+
+    {% set entries = recentEntries.all() %}
+
+    {% for entry in entries %}
+
+        {% set image = entry.featuredImage[0] ?? null %}
+        {% set transform = {
+            mode: 'crop',
+            width: 150,
+            height: 90,
+            quality: 75,
+            position: 'center-center'
+        } %}
+        {% do image.setTransform(transform) %}
 
 
-
+        {% include '_snippets/entryCard.html' %} 
+         
+     {% endfor %}
 
 
 
