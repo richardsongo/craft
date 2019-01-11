@@ -252,6 +252,6 @@ or
   
 {% endfor %}
 
-<code>
+</code>
 
 
