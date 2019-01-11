@@ -205,7 +205,7 @@ or
 
 <h2>Contributors</h2>
 
-<code>
+<blockquote>
     
     {% if entry.contributors | length %}
     
@@ -236,7 +236,7 @@ or
    
     {% endif %}
 
-</code>
+</blockquote>
 
 
 
