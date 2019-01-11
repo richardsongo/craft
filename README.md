@@ -181,7 +181,8 @@ or
     {% set recentEntries = craft.entries()
         .section('news')
         .with([ 
-                ['featuredImage', { kind: 'image' }]
+       'featuredImage',
+       'relatedCategories'
               ])
         .limit(4) 
     %}
