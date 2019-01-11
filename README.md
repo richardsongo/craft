@@ -238,7 +238,20 @@ or
 
 </blockquote>
 
+<h2>List of categories with related articles </h2>
 
+<quote>
+    
+{% for category in craft.categories.group('categoryGroup') %}
 
+  {{category}}
+
+  {% for post in craft.entries.section('posts').relatedTo(category) %}
+    {# your markup #}
+  {% endfor %}
+  
+{% endfor %}
+
+<quote>
 
 
