@@ -207,10 +207,32 @@ or
      {% endfor %}
 
 
+<h2>Contributors</h2>
 
+<div class="contributors-images">
+    
+    {% for authors in entry.contributors %}
+        {% set authorImage = authors.contributorPhoto.first() %}
+            {% if authorImage | length %}     
+                <a href="{{ authors.url }}">
+                   <img alt="" src="{{ authorImage.url }}" class="avatar avatar-234 photo">
+                </a>
+            {% else %}     
+                <img alt="" src="/img/profile-default.png" class="avatar avatar-234 photo">      
+            {% endif %}
+    {% endfor %}
+    
+</div>
+<div class="contributors-info"> 
+    
+    <span class="by">by </span>
+    {% for authors in entry.contributors %}
+        <span itemprop="author" class="author">
+            <a href="{{ authors.url }}">{{ authors.title }}</a> 
+        </span> {%- if not loop.last -%}, and {% endif %}
+    {% endfor %}
 
-
-
+</div>
 
 
 
