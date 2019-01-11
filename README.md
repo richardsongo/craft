@@ -125,5 +125,45 @@ Or
 </pre>
 
 
+<h2>LOOPS</h2>
+
+<h2>Pagination Loop</h2>
+
+    {% paginate craft.entries.section('news').limit(10) as pageInfo, newsEntries %}
+
+    {% for entry in newsEntries %}
+
+            {% set image = entry.featuredImage.one() %}
+            {% set entryCategory = entry.categories.one() %}
+            {% set transform= {
+                                mode: 'crop',
+                                width: 675,
+                                height: 339,
+                                quality: 80
+                                } 
+            %}
+            {% do image.setTransform(transform) %}
+
+            {% include '_snippets/entryCard.html' %}                         
+
+    {% endfor %}
+
+    {% include '_snippets/pagination.html' %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
