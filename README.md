@@ -240,7 +240,7 @@ or
 
 <h2>List of categories with related articles </h2>
 
-<quote>
+<code>
     
 {% for category in craft.categories.group('categoryGroup') %}
 
@@ -252,6 +252,6 @@ or
   
 {% endfor %}
 
-<quote>
+<code>
 
 
