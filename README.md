@@ -151,9 +151,32 @@ Or
     {% include '_snippets/pagination.html' %}
 
 
+<h2>Pagination with Eagerload </h2>
+
+{% set queryParams = {
+    // ...
+    with: [
+        'gridMatrixBlock1:rowItem1',
+        ['gridMatrixBlock1:rowItem1.gridimageFile', {
+            kind: 'image',
+            withTransforms: projectThumb
+        }],
+        ...
+    ]
+} %}
+{% set allEntries = craft.entries(queryParams).limit(itemsPerPage) %}
+
+or
+
+{% paginate craft.entries(queryParams).limit(10) as pageInfo, newsEntries %}
 
 
-<h3>With Eager Load </h3>
+
+
+
+
+
+<h2>Loop With Eager Load </h2>
 
     {% set recentEntries = craft.entries()
         .section('news')
