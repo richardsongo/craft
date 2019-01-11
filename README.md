@@ -208,8 +208,10 @@ or
 
 
 <h2>Contributors</h2>
+
 <code>
-    {% if entry.contributors|length %}
+    
+    {% if entry.contributors | length %}
     
         <div class="contributors-images">
 
