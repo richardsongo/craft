@@ -244,11 +244,11 @@ or
     
 {% for category in craft.categories.group('categoryGroup') %}
 
-  {{category}}
+    <a href="{{ category.url }}">{{ category.title }}</a>
 
-  {% for post in craft.entries.section('posts').relatedTo(category) %}
+    {% for post in craft.entries.section('posts').relatedTo(category) %}
     {# your markup #}
-  {% endfor %}
+    {% endfor %}
   
 {% endfor %}
 
