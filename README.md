@@ -3,12 +3,13 @@ Templates Craft 3
 
 
 Craft Filters:
-
+ <pre>
 
 {{ some_html|striptags }}
 
 <p>The striptags filter strips SGML/XML (HTML) tags and replace adjacent whitespace by one space </p>
 
+ </pre>
 
 <h2>Author Tags</h2>
 
@@ -211,7 +212,7 @@ Friday, December 22
 
 <h2>Contributors</h2>
 
-<blockquote>
+ <pre>>
     
     {% if entry.contributors | length %}
     
@@ -242,11 +243,11 @@ Friday, December 22
    
     {% endif %}
 
-</blockquote>
+ </pre>
 
 <h2>List of categories with related articles </h2>
 
-<blockquote>
+ <pre>
     
     {% for category in craft.categories.group('categoryGroup') %}
 
@@ -258,7 +259,7 @@ Friday, December 22
 
     {% endfor %}
 
-</blockquote>
+ </pre>
 
 <h2>Creating Social Share Links </h2>
 
