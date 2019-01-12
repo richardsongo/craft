@@ -240,7 +240,7 @@ or
 
 <h2>List of categories with related articles </h2>
 
-<code>
+<blockquote>
     
 {% for category in craft.categories.group('categoryGroup') %}
 
@@ -252,11 +252,9 @@ or
   
 {% endfor %}
 
-</code>
+</blockquote>
 
 <h2>Creating Social Share Links </h2>
-
-https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.businessinsider.com%2Fbusiness-travel-packing-list-2018-9%3Futm_source%3Dfacebook%26utm_medium%3Dreferral%26utm_content%3Dtopbar%26utm_term%3Ddesktop%26referrer%3Dfacebook
 
 
 
