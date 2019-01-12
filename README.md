@@ -265,37 +265,41 @@ Friday, December 22
 
 <h2>Pagination</h2>
 
-<div id="pagination">
+<pre>
 
-	<ul class="pagination pagination-sm">
+	<div id="pagination">
 
-		{% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">&#171; Prev</a>{% endif %}
+		<ul class="pagination pagination-sm">
 
-		{% if pageInfo.currentPage - 4 > 1 %}
-			<li><span class="dots">...</span></li>
-		{% endif %}
+			{% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">&#171; Prev</a>{% endif %}
 
-		{% for page, url in pageInfo.getPrevUrls(4) %}
-			<li><a href="{{ url }}">{{ page }}</a></li>
-		{% endfor %}
+			{% if pageInfo.currentPage - 4 > 1 %}
+				<li><span class="dots">...</span></li>
+			{% endif %}
 
-			<li class="current active on"><span class="current">{{ pageInfo.currentPage }}</span></li>
+			{% for page, url in pageInfo.getPrevUrls(4) %}
+				<li><a href="{{ url }}">{{ page }}</a></li>
+			{% endfor %}
 
-		{% for page, url in pageInfo.getNextUrls(4) %}
-			<li><a href="{{ url }}">{{ page }}</a></li>
-		{% endfor %}
+				<li class="current active on"><span class="current">{{ pageInfo.currentPage }}</span></li>
 
-		{% if pageInfo.totalPages - pageInfo.currentPage > 4 %}
-			<li><span class="dots">...</span></li>
-			<a href="{{ pageInfo.lastUrl }}">{{pageInfo.totalPages}}</a>
-		{% endif %}
+			{% for page, url in pageInfo.getNextUrls(4) %}
+				<li><a href="{{ url }}">{{ page }}</a></li>
+			{% endfor %}
+
+			{% if pageInfo.totalPages - pageInfo.currentPage > 4 %}
+				<li><span class="dots">...</span></li>
+				<a href="{{ pageInfo.lastUrl }}">{{pageInfo.totalPages}}</a>
+			{% endif %}
 
 
-		{% if pageInfo.nextUrl %}
-			<a href="{{ pageInfo.nextUrl }}">Next &#187;</a>
-		{% endif %}
+			{% if pageInfo.nextUrl %}
+				<a href="{{ pageInfo.nextUrl }}">Next &#187;</a>
+			{% endif %}
 
-	</ul>
+		</ul>
 
-</div>
+	</div>
+
+</pre>
 
