@@ -263,6 +263,39 @@ Friday, December 22
 
 <h2>Creating Social Share Links </h2>
 
+<h2>Pagination</h2>
+
+<div id="pagination">
+
+	<ul class="pagination pagination-sm">
+
+		{% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">&#171; Prev</a>{% endif %}
+
+		{% if pageInfo.currentPage - 4 > 1 %}
+			<li><span class="dots">...</span></li>
+		{% endif %}
+
+		{% for page, url in pageInfo.getPrevUrls(4) %}
+			<li><a href="{{ url }}">{{ page }}</a></li>
+		{% endfor %}
+
+			<li class="current active on"><span class="current">{{ pageInfo.currentPage }}</span></li>
+
+		{% for page, url in pageInfo.getNextUrls(4) %}
+			<li><a href="{{ url }}">{{ page }}</a></li>
+		{% endfor %}
+
+		{% if pageInfo.totalPages - pageInfo.currentPage > 4 %}
+			<li><span class="dots">...</span></li>
+			<a href="{{ pageInfo.lastUrl }}">{{pageInfo.totalPages}}</a>
+		{% endif %}
 
 
+		{% if pageInfo.nextUrl %}
+			<a href="{{ pageInfo.nextUrl }}">Next &#187;</a>
+		{% endif %}
+
+	</ul>
+
+</div>
 
