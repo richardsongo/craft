@@ -5,37 +5,37 @@ Templates Craft 3
 Craft Filters:
  <pre>
 
-{{ some_html|striptags }}
+	{{ some_html|striptags }}
 
-<p>The striptags filter strips SGML/XML (HTML) tags and replace adjacent whitespace by one space </p>
+	<p>The striptags filter strips SGML/XML (HTML) tags and replace adjacent whitespace by one space </p>
 
  </pre>
 
 <h2>Author Tags</h2>
 
-    <pre>
+<pre>
 
     {{ entry.author.socialTwitter }}
     {{ entry.author.socialFacebook }}
     {{ entry.author.fullName }}
     {{ entry.author.bio }}
 
-    </pre>
+</pre>
 
 
 
 <h2>Entries except the first one</h2>
 
-    <pre>
+<pre>
     {% set entries = craft.entries.section('articles').limit(3).find %}
     {% set firstEntry = entries[0] %}
     {% set remainingEntries = entries|without(firstEntry) %}
-    </pre>
+</pre>
 
 
 <h2> 2. Conditionals </h2>
 
-    <pre>
+<pre>
     {% if something == 'value' %}
         ...
     {% elseif somethingElse == 'otherValue' %}
@@ -43,25 +43,25 @@ Craft Filters:
     {% else %}
         ...
     {% endif %}
-    </pre>
+</pre>
 
-    <pre>
+<pre>
     {% for block in contactDetails.myMatrixField %}
          {{ block.location }}
          {{ block.address }}
     {% endfor %}
-    </pre>
+</pre>
 
 <h2> Sharring </h2>
 
-    <pre>
+<pre>
     {% for block in socialNetworks.socialLinks %}
       {% if block.facebook %}     {{ block.facebook }}  {% endif %}
       {% if block.twitter %}      {{ block.twitter }}   {% endif %}
       {% if block.youtube %}      {{ block.youtube }}   {% endif %}
       {% if block.instagram %}    {{ block.instagram }} {% endif %}
     {% endfor %}
-    </pre>
+</pre>
 
 
 
@@ -85,7 +85,7 @@ Friday, December 22
 <h2>Is it possible to change a loop if mobile browser is detected?</h2>
 <p>http://craftcms.stackexchange.com/questions/11250/is-it-possible-to-change-a-loop-if-mobile-browser-is-detected
     </p>
-    <pre>
+<pre>
     {% if craft.request.isMobileBrowser %}
         {% for batch in craft.entries.section('afval')|batch(2) %}
             ...
@@ -95,18 +95,19 @@ Friday, December 22
             ...
         {% endfor %}
     {% endif %}
-    </pre>
+</pre>
     Or 
-    <pre>
+<pre>
     {% set batch = craft.request.isMobileBrowser ? 2 : 3 %}
 
     {% for batch in craft.entries.section('afval') | batch(batch) %}
         ...
     {% endfor %}
-    </pre>
+</pre>
 
 <h2>Check and remove repeat entries from loop</h2>
 
+<pre>
     {% set existingIds = [] %}
 
     {% for event in events %}
@@ -116,10 +117,10 @@ Friday, December 22
             {% set existingIds = existingIds|merge([event.id]) %}
         {% endif %}
     {% endfor %}
-
+</pre>
     <h2>Slide Count</h2>
 
-    <pre>
+<pre>
     {% set slides = craft.entries.section('events').featured('1').limit(null) %}
 
     {% set count = 0 %}
@@ -129,7 +130,7 @@ Friday, December 22
             {% set count = count + 1 %}
         {% endif %}
     {% endfor %}
-    </pre>
+</pre>
 
 
 <h2>LOOPS</h2>
@@ -267,40 +268,40 @@ Friday, December 22
 <h2>Pagination</h2>
 
 <blockquote>
+<div id="pagination">
 
-	<div id="pagination">
+	<ul class="pagination pagination-lg">
 
-		<ul class="pagination pagination-sm">
+		{% if pageInfo.prevUrl %}
+			<li class="page"><a href="{{ pageInfo.prevUrl }}">&#171; Prev</a></li>
+		{% endif %}
 
-			{% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">&#171; Prev</a>{% endif %}
+		{% if pageInfo.currentPage - 4 > 1 %}
+			<li class="page gap"><span>...</span></li>
+		{% endif %}
 
-			{% if pageInfo.currentPage - 4 > 1 %}
-				<li><span class="dots">...</span></li>
-			{% endif %}
+		{% for page, url in pageInfo.getPrevUrls(4) %}
+			<li class="page"><a href="{{ url }}">{{ page }}</a></li>
+		{% endfor %}
 
-			{% for page, url in pageInfo.getPrevUrls(4) %}
-				<li><a href="{{ url }}">{{ page }}</a></li>
-			{% endfor %}
+			<li class="page current active on"><span>{{ pageInfo.currentPage }}</span></li>
 
-				<li class="current active on"><span class="current">{{ pageInfo.currentPage }}</span></li>
+		{% for page, url in pageInfo.getNextUrls(4) %}
+			<li class="page"><a href="{{ url }}">{{ page }}</a></li>
+		{% endfor %}
 
-			{% for page, url in pageInfo.getNextUrls(4) %}
-				<li><a href="{{ url }}">{{ page }}</a></li>
-			{% endfor %}
-
-			{% if pageInfo.totalPages - pageInfo.currentPage > 4 %}
-				<li><span class="dots">...</span></li>
-				<a href="{{ pageInfo.lastUrl }}">{{pageInfo.totalPages}}</a>
-			{% endif %}
+		{% if pageInfo.totalPages - pageInfo.currentPage > 4 %}
+			<li class="page gap"><span>...</span></li>
+			<a href="{{ pageInfo.lastUrl }}">{{pageInfo.totalPages}}</a>
+		{% endif %}
 
 
-			{% if pageInfo.nextUrl %}
-				<a href="{{ pageInfo.nextUrl }}">Next &#187;</a>
-			{% endif %}
+		{% if pageInfo.nextUrl %}
+			<li class="page"><a href="{{ pageInfo.nextUrl }}">Next &#187;</a></li>
+		{% endif %}
 
-		</ul>
+	</ul>
 
-	</div>
-
+</div>
 </blockquote>
 
