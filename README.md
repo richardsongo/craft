@@ -181,6 +181,7 @@ Friday, December 22
 
 <h2>Loop With Eager Load </h2>
 
+<pre>
     {% set recentEntries = craft.entries()
         .section('news')
         .with([ 
@@ -209,10 +210,10 @@ Friday, December 22
          
      {% endfor %}
 
-
+</pre>
 <h2>Contributors</h2>
 
- <pre>>
+ <blockquote>
     
     {% if entry.contributors | length %}
     
@@ -243,11 +244,11 @@ Friday, December 22
    
     {% endif %}
 
- </pre>
+ </blockquote>
 
 <h2>List of categories with related articles </h2>
 
- <pre>
+ <blockquote>
     
     {% for category in craft.categories.group('categoryGroup') %}
 
@@ -259,13 +260,13 @@ Friday, December 22
 
     {% endfor %}
 
- </pre>
+ </blockquote>
 
 <h2>Creating Social Share Links </h2>
 
 <h2>Pagination</h2>
 
-<pre>
+<blockquote>
 
 	<div id="pagination">
 
@@ -301,5 +302,5 @@ Friday, December 22
 
 	</div>
 
-</pre>
+</blockquote>
 
