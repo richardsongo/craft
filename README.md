@@ -77,52 +77,52 @@ Friday, December 22
 
 <h2>Is it possible to change a loop if mobile browser is detected?</h2>
 <p>http://craftcms.stackexchange.com/questions/11250/is-it-possible-to-change-a-loop-if-mobile-browser-is-detected
-</p>
-<pre>
-{% if craft.request.isMobileBrowser %}
-    {% for batch in craft.entries.section('afval')|batch(2) %}
-        ...
-    {% endfor %}
-{% else %}
-    {% for batch in craft.entries.section('afval')|batch(3) %}
-        ...
-    {% endfor %}
-{% endif %}
-</pre>
-Or 
-<pre>
-{% set batch = craft.request.isMobileBrowser ? 2 : 3 %}
+    </p>
+    <pre>
+    {% if craft.request.isMobileBrowser %}
+        {% for batch in craft.entries.section('afval')|batch(2) %}
+            ...
+        {% endfor %}
+    {% else %}
+        {% for batch in craft.entries.section('afval')|batch(3) %}
+            ...
+        {% endfor %}
+    {% endif %}
+    </pre>
+    Or 
+    <pre>
+    {% set batch = craft.request.isMobileBrowser ? 2 : 3 %}
 
-{% for batch in craft.entries.section('afval') | batch(batch) %}
-    ...
-{% endfor %}
-</pre>
+    {% for batch in craft.entries.section('afval') | batch(batch) %}
+        ...
+    {% endfor %}
+    </pre>
 
 <h2>Check and remove repeat entries from loop</h2>
 
-{% set existingIds = [] %}
+    {% set existingIds = [] %}
 
-{% for event in events %}
-    {% if event.id not in existingIds %}
-        {{ event.title }}
+    {% for event in events %}
+        {% if event.id not in existingIds %}
+            {{ event.title }}
 
-        {% set existingIds = existingIds|merge([event.id]) %}
-    {% endif %}
-{% endfor %}
+            {% set existingIds = existingIds|merge([event.id]) %}
+        {% endif %}
+    {% endfor %}
 
-<h2>Slide Count</h2>
+    <h2>Slide Count</h2>
 
-<pre>
-{% set slides = craft.entries.section('events').featured('1').limit(null) %}
+    <pre>
+    {% set slides = craft.entries.section('events').featured('1').limit(null) %}
 
-{% set count = 0 %}
-{% for slide in slides %}
-    {% if count < 5 and slide.dateTime|date_modify('tomorrow 5am')|date('U') < now|date('U') %}
-        {{ slide.dateTime }}
-        {% set count = count + 1 %}
-    {% endif %}
-{% endfor %}
-</pre>
+    {% set count = 0 %}
+    {% for slide in slides %}
+        {% if count < 5 and slide.dateTime|date_modify('tomorrow 5am')|date('U') < now|date('U') %}
+            {{ slide.dateTime }}
+            {% set count = count + 1 %}
+        {% endif %}
+    {% endfor %}
+    </pre>
 
 
 <h2>LOOPS</h2>
@@ -153,22 +153,22 @@ Or
 
 <h2>Pagination with Eagerload </h2>
 
-{% set queryParams = {
+    {% set queryParams = {
 
-    with: [
-        'gridMatrixBlock1:rowItem1',
-        ['gridMatrixBlock1:rowItem1.gridimageFile', {
-            kind: 'image',
-            withTransforms: projectThumb
-        }],
+        with: [
+            'gridMatrixBlock1:rowItem1',
+            ['gridMatrixBlock1:rowItem1.gridimageFile', {
+                kind: 'image',
+                withTransforms: projectThumb
+            }],
 
-    ]
-} %}
-{% set allEntries = craft.entries(queryParams).limit(itemsPerPage) %}
+        ]
+    } %}
+    {% set allEntries = craft.entries(queryParams).limit(itemsPerPage) %}
 
-or
+    or
 
-{% paginate craft.entries(queryParams).limit(10) as pageInfo, newsEntries %}
+    {% paginate craft.entries(queryParams).limit(10) as pageInfo, newsEntries %}
 
 
 
@@ -242,15 +242,15 @@ or
 
 <blockquote>
     
-{% for category in craft.categories.group('categoryGroup') %}
+    {% for category in craft.categories.group('categoryGroup') %}
 
-    <a href="{{ category.url }}">{{ category.title }}</a>
+        <a href="{{ category.url }}">{{ category.title }}</a>
 
-    {% for post in craft.entries.section('posts').relatedTo(category) %}
-    {# your markup #}
+        {% for post in craft.entries.section('posts').relatedTo(category) %}
+        {# your markup #}
+        {% endfor %}
+
     {% endfor %}
-  
-{% endfor %}
 
 </blockquote>
 
