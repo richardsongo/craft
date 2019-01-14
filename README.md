@@ -64,27 +64,56 @@ Craft Filters:
 </pre>
 
 
-
+<h2>Date formats</h2>
 <pre>              
+
 F	A full textual representation of a month, such as January or March
 
-Friday, December 22
+
+{{ entry.postDate | date }}, {{ entry.postDate |date('medium') }}
+results: 29 Nov. 2018
+
+{{ entry.postDate |date('short') }}
+results: 29/11/2018
+
+{{ entry.postDate |datetime('long', locale='fr-FR', timezone='UTC') }}
+29 NOVEMBRE 2018
+
+{{ entry.postDate |date('full') }}
+results: Wednesday, September 26, 2018
+
+{{ entry.postDate |date('c') }}
+results: 2018-11-29T06:30:00
+
+
+
+1/
+
 {{ entry.postDate | date("d, F d") }}
+results: Friday, December 22
 
-
-
+2/
 {{ entry.postDate | date("d M, Y") }}
+results: 17 January, 2018
 
-17 January 2018:
+3/
 {{ entry.postDate | date("d F, Y") }}
+results: 17 January, 2018
+
+4/
+{{ entry.postDate | date('M j, Y') }}
+results: 18-07-2011
+
+{{ entry.postDate | date('d-m-Y') }}
+results: 18-07-2011
 
 
 </pre>
 
 
+
 <h2>Is it possible to change a loop if mobile browser is detected?</h2>
-<p>http://craftcms.stackexchange.com/questions/11250/is-it-possible-to-change-a-loop-if-mobile-browser-is-detected
-    </p>
+
 <pre>
     {% if craft.request.isMobileBrowser %}
         {% for batch in craft.entries.section('afval')|batch(2) %}
