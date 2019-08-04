@@ -2,6 +2,62 @@
 Templates Craft 3
 
 
+
+
+Using Wordsmith words trimmer filter:
+
+
+|chop(limit=25, unit='w', allowedTags='<em>, <p>, <b>')
+
+
+
+
+Creating an array:
+---
+
+{# Create an entry query with the 'section' and 'limit' parameters #}
+{% set myEntryQuery = craft.entries()
+    .section('blog')
+    .limit(10) %}
+
+{# Fetch the entries #}
+{% set entries = myEntryQuery.all() %}
+
+{# Display the entries #}
+{% for entry in entries %}
+    <article>
+        <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+        {{ entry.summary }}
+        <a href="{{ entry.url }}">Continue reading</a>
+    </article>
+{% endfor %}
+
+
+
+Creating a single:
+---
+
+{# Create an entry query with the 'section' and 'limit' parameters #}
+{% set myEntryQuery = craft.entries()
+    .section('pages')
+    .one() %}
+
+{# Display the entries #}
+{% for entry in myEntryQuery %}
+    <article>
+        <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+        {{ entry.summary }}
+        <a href="{{ entry.url }}">Continue reading</a>
+    </article>
+{% endfor %}
+
+
+
+
+
+
+
+
 Craft Filters:
  <pre>
 
